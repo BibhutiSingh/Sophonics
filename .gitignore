@@ -1,0 +1,8 @@
+/.idea/
+/src/Sophonics/obj/
+*.obj
+*.bin
+.vscode
+*.csproj.user
+[Bb]in
+[Oo]bj
