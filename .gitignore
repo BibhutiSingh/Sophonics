@@ -6,3 +6,6 @@
 *.csproj.user
 [Bb]in
 [Oo]bj
+/src/Sophonics/.idea/.idea.Sophonics.dir/.idea
+.[Ii]dea
+*.DotSettings.user
