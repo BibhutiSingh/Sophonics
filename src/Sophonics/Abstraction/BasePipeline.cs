@@ -6,6 +6,7 @@ namespace Sophonics.Abstraction;
 public abstract class BasePipeline
 {
     public Guid PipelineId { get; set; }
+    public IPipelineContext PipelineContext { get; }
     private List<Tuple<BaseJob, JobDependency>> _jobCollection = new List<Tuple<BaseJob, JobDependency>>();
 
     public virtual void AppendJob(BaseJob job, JobDependency dependency = default)
@@ -21,8 +22,8 @@ public abstract class BasePipeline
         {
             try
             {
-                var result = await job.Item1.RunJobAsync(token);
-                return result; 
+                var result = await job.Item1.RunJobAsync(PipelineContext, token);
+                return result;
             }
             catch (Exception ex)
             {
