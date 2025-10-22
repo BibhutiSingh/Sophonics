@@ -11,9 +11,10 @@ public abstract class BasePipeline
 
     public virtual void AppendJob(BaseJob job, JobDependency dependency = default)
     {
-        job.JobId= Guid.NewGuid();
+        job.JobId = Guid.NewGuid();
         _jobCollection.Add(new Tuple<BaseJob, JobDependency>(job, dependency));
     }
+    public abstract void SetupPipeline();
 
     public virtual async Task<ExcecutionResult> RunPipelineAsync(CancellationToken token)
     {
